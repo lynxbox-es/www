@@ -287,10 +287,18 @@ button {
   top: 0;
   z-index: 200;
   height: var(--header-height);
-  background-color: rgba(9, 10, 12, 0.92);
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(9, 10, 12, 0.94);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-dark);
+  z-index: -1;
+  pointer-events: none;
 }
 
 .header-inner {
@@ -373,9 +381,15 @@ button {
 /* Nav Menu (Mobile Drawer first) */
 .site-nav {
   position: fixed;
-  inset: var(--header-height) 0 0 0;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: calc(100vh - var(--header-height));
+  height: calc(100dvh - var(--header-height));
+  z-index: 205;
   background-color: var(--bg-black);
-  padding: 2rem 1.5rem;
+  padding: 2rem 1.5rem 2.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1408,7 +1422,11 @@ button {
 
   .site-nav {
     position: static;
-    inset: auto;
+    top: auto;
+    left: auto;
+    right: auto;
+    width: auto;
+    height: auto;
     background: transparent;
     padding: 0;
     flex-direction: row;
