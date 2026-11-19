@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/styles.css?v=2">
+  <link rel="stylesheet" href="css/styles.css?v=3">
 </head>
 <body>
   <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
@@ -293,11 +293,164 @@
             <h2 id="horarios-heading" class="section-title">Horarios de Clases</h2>
           </div>
           <p class="section-lead">
-            Filtra por modalidad o selecciona el día en tu móvil. Sesiones dirigidas de lunes a sábado con plazas limitadas para garantizar atención técnica real.
+            Selecciona una disciplina para ver sus días y horas de un vistazo. Sesiones dirigidas de lunes a sábado con plazas limitadas para garantizar atención técnica real.
           </p>
         </div>
 
-        <!-- Schedule Filter & Mobile Day Selector -->
+        <!-- ===============================================================
+             MOBILE SCHEDULE (< 1024px): Discipline Tabs & Cards (IG Style)
+             =============================================================== -->
+        <div class="mobile-schedule">
+          <div class="disc-tabs" role="tablist" aria-label="Ver horarios por disciplina">
+            <button type="button" class="disc-tab is-active" role="tab" data-disc-tab="wod" aria-selected="true">WOD</button>
+            <button type="button" class="disc-tab" role="tab" data-disc-tab="fuerza" aria-selected="false">Fuerza</button>
+            <button type="button" class="disc-tab" role="tab" data-disc-tab="hybrid" aria-selected="false">Hybrid</button>
+            <button type="button" class="disc-tab" role="tab" data-disc-tab="especialidades" aria-selected="false">Especialidades</button>
+          </div>
+
+          <!-- Panel 1: WOD -->
+          <div class="disc-panel" data-disc-panel="wod" role="tabpanel">
+            <div class="disc-panel-header">
+              <span class="disc-panel-title">WOD</span>
+              <span class="disc-panel-sub">Workout of the Day</span>
+            </div>
+            <div class="disc-panel-body">
+              <div class="disc-day-group">
+                <h3 class="disc-day-label">Lunes y Miércoles</h3>
+                <div class="disc-times-grid">
+                  <span class="disc-time-chip">07:00 – 08:00</span>
+                  <span class="disc-time-chip">08:00 – 09:00</span>
+                  <span class="disc-time-chip">10:00 – 11:00</span>
+                  <span class="disc-time-chip">17:00 – 18:00</span>
+                  <span class="disc-time-chip">18:00 – 19:00</span>
+                  <span class="disc-time-chip">19:00 – 20:00</span>
+                  <span class="disc-time-chip">20:00 – 21:00</span>
+                  <span class="disc-time-chip">21:00 – 22:00</span>
+                </div>
+              </div>
+
+              <div class="disc-day-group">
+                <h3 class="disc-day-label">Martes y Jueves</h3>
+                <div class="disc-times-grid">
+                  <span class="disc-time-chip">09:00 – 10:00</span>
+                  <span class="disc-time-chip">16:00 – 17:00</span>
+                </div>
+              </div>
+
+              <div class="disc-day-group">
+                <h3 class="disc-day-label">Viernes</h3>
+                <div class="disc-times-grid">
+                  <span class="disc-time-chip">07:00 – 08:00</span>
+                  <span class="disc-time-chip">08:00 – 09:00</span>
+                  <span class="disc-time-chip">10:00 – 11:00</span>
+                  <span class="disc-time-chip">17:00 – 18:00</span>
+                  <span class="disc-time-chip">19:00 – 20:00</span>
+                </div>
+              </div>
+
+              <div class="disc-day-group">
+                <h3 class="disc-day-label">Sábado</h3>
+                <div class="disc-times-grid">
+                  <span class="disc-time-chip">10:00 – 11:00</span>
+                  <span class="disc-time-chip">12:00 – 13:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 2: FUERZA -->
+          <div class="disc-panel is-hidden" data-disc-panel="fuerza" role="tabpanel">
+            <div class="disc-panel-header">
+              <span class="disc-panel-title">Fuerza</span>
+              <span class="disc-panel-sub">Progresión Estructurada</span>
+            </div>
+            <div class="disc-panel-body">
+              <div class="disc-day-group">
+                <h3 class="disc-day-label">Martes y Jueves</h3>
+                <div class="disc-times-grid">
+                  <span class="disc-time-chip">07:00 – 08:00</span>
+                  <span class="disc-time-chip">08:00 – 09:00</span>
+                  <span class="disc-time-chip">10:00 – 11:00</span>
+                  <span class="disc-time-chip">13:00 – 14:00</span>
+                  <span class="disc-time-chip">17:00 – 18:00</span>
+                  <span class="disc-time-chip">18:00 – 19:00</span>
+                  <span class="disc-time-chip">19:00 – 20:00</span>
+                  <span class="disc-time-chip">21:00 – 22:00</span>
+                </div>
+              </div>
+
+              <div class="disc-day-group">
+                <h3 class="disc-day-label">Lunes, Miércoles y Viernes</h3>
+                <div class="disc-times-grid">
+                  <span class="disc-time-chip">13:00 – 14:00</span>
+                  <span class="disc-time-chip">14:00 – 15:00</span>
+                </div>
+              </div>
+
+              <div class="disc-day-group">
+                <h3 class="disc-day-label">Sábado</h3>
+                <div class="disc-times-grid">
+                  <span class="disc-time-chip">09:00 – 10:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 3: HYBRID -->
+          <div class="disc-panel is-hidden" data-disc-panel="hybrid" role="tabpanel">
+            <div class="disc-panel-header">
+              <span class="disc-panel-title">Hybrid</span>
+              <span class="disc-panel-sub">Resistencia + Potencia</span>
+            </div>
+            <div class="disc-panel-body">
+              <div class="disc-day-group">
+                <h3 class="disc-day-label">Martes y Jueves</h3>
+                <div class="disc-times-grid">
+                  <span class="disc-time-chip">11:00 – 12:00</span>
+                  <span class="disc-time-chip">20:00 – 21:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 4: ESPECIALIDADES -->
+          <div class="disc-panel is-hidden" data-disc-panel="especialidades" role="tabpanel">
+            <div class="disc-panel-header">
+              <span class="disc-panel-title">Especialidades</span>
+              <span class="disc-panel-sub">Gimnásticos · Halterofilia · Mobility</span>
+            </div>
+            <div class="disc-panel-body">
+              <div class="disc-day-group">
+                <h3 class="disc-day-label">Gimnásticos / Halterofilia</h3>
+                <div class="disc-spec-list">
+                  <div class="disc-spec-row">
+                    <span class="disc-spec-day">Viernes</span>
+                    <span class="disc-time-chip">18:00 – 19:00</span>
+                  </div>
+                  <div class="disc-spec-row">
+                    <span class="disc-spec-day">Sábado</span>
+                    <span class="disc-time-chip">11:00 – 12:00</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="disc-day-group">
+                <h3 class="disc-day-label">Mobility</h3>
+                <div class="disc-spec-list">
+                  <div class="disc-spec-row">
+                    <span class="disc-spec-day">Sábado</span>
+                    <span class="disc-time-chip">13:00 – 14:00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===============================================================
+             DESKTOP SCHEDULE (>= 1024px): Full 6-Day Matrix + Filters
+             =============================================================== -->
+        <div class="desktop-schedule">
         <div class="schedule-controls">
           <div class="filter-group" role="group" aria-label="Filtrar horario por disciplina">
             <button type="button" class="filter-btn is-active" data-program-filter="all" aria-pressed="true">Todas</button>
@@ -306,15 +459,6 @@
             <button type="button" class="filter-btn" data-program-filter="hybrid" aria-pressed="false">Hybrid</button>
             <button type="button" class="filter-btn" data-program-filter="especialidades" aria-pressed="false">Gimnásticos / Halterofilia</button>
             <button type="button" class="filter-btn" data-program-filter="mobility" aria-pressed="false">Mobility</button>
-          </div>
-
-          <div class="day-tabs" role="tablist" aria-label="Seleccionar día de la semana">
-            <button type="button" class="day-tab is-active" role="tab" data-day-tab="lun" aria-selected="true">Lun</button>
-            <button type="button" class="day-tab" role="tab" data-day-tab="mar" aria-selected="false">Mar</button>
-            <button type="button" class="day-tab" role="tab" data-day-tab="mie" aria-selected="false">Mié</button>
-            <button type="button" class="day-tab" role="tab" data-day-tab="jue" aria-selected="false">Jue</button>
-            <button type="button" class="day-tab" role="tab" data-day-tab="vie" aria-selected="false">Vie</button>
-            <button type="button" class="day-tab" role="tab" data-day-tab="sab" aria-selected="false">Sáb</button>
           </div>
         </div>
 
@@ -417,6 +561,7 @@
               <li class="slot-item"><span class="slot-time">13:00 – 14:00</span><span class="slot-class" data-program="mobility">Mobility</span></li>
             </ul>
           </div>
+        </div>
         </div>
 
         <p class="schedule-note">
@@ -876,6 +1021,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js" defer></script>
+  <script src="js/main.js?v=3" defer></script>
 </body>
 </html>

@@ -66,35 +66,28 @@
   }
 
   /* ------------------------------------------------------------------------
-     2. Schedule: Mobile Day Selector & Program Discipline Filter
+     2. Schedule: Mobile Discipline Tabs (< 1024px) & Desktop Program Filter
      ------------------------------------------------------------------------ */
-  const dayTabs = document.querySelectorAll('[data-day-tab]');
-  const dayColumns = document.querySelectorAll('[data-day-col]');
+  const discTabs = document.querySelectorAll('[data-disc-tab]');
+  const discPanels = document.querySelectorAll('[data-disc-panel]');
   const filterBtns = document.querySelectorAll('[data-program-filter]');
   const slotItems = document.querySelectorAll('.slot-item');
 
-  function activateDay(dayKey) {
-    dayTabs.forEach(function (tab) {
-      const active = tab.getAttribute('data-day-tab') === dayKey;
-      tab.classList.toggle('is-active', active);
-      tab.setAttribute('aria-selected', active ? 'true' : 'false');
-    });
-
-    dayColumns.forEach(function (col) {
-      const match = col.getAttribute('data-day-col') === dayKey;
-      col.classList.toggle('is-hidden-mobile', !match);
-    });
-  }
-
-  if (dayTabs.length > 0 && dayColumns.length > 0) {
-    // Default to today's weekday (Mon=1..Sat=6), fallback to Monday ('lun')
-    const dayMap = { 1: 'lun', 2: 'mar', 3: 'mie', 4: 'jue', 5: 'vie', 6: 'sab' };
-    const todayKey = dayMap[new Date().getDay()] || 'lun';
-    activateDay(todayKey);
-
-    dayTabs.forEach(function (tab) {
+  if (discTabs.length > 0 && discPanels.length > 0) {
+    discTabs.forEach(function (tab) {
       tab.addEventListener('click', function () {
-        activateDay(tab.getAttribute('data-day-tab'));
+        const key = tab.getAttribute('data-disc-tab');
+
+        discTabs.forEach(function (t) {
+          const active = t === tab;
+          t.classList.toggle('is-active', active);
+          t.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+
+        discPanels.forEach(function (panel) {
+          const match = panel.getAttribute('data-disc-panel') === key;
+          panel.classList.toggle('is-hidden', !match);
+        });
       });
     });
   }

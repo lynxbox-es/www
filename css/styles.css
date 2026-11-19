@@ -736,34 +736,174 @@ button {
   color: var(--ink-white);
 }
 
-/* Mobile Day Selector Tabs */
-.day-tabs {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 0.35rem;
+/* Mobile Discipline Tabs & Cards (< 1024px) */
+.desktop-schedule {
+  display: none;
 }
 
-.day-tab {
-  padding: 0.6rem 0.25rem;
+.mobile-schedule {
+  display: block;
+}
+
+.disc-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.disc-tab {
+  padding: 0.75rem 0.75rem;
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 1.08rem;
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   text-align: center;
   background-color: var(--bg-white);
   border: 1.5px solid var(--border-light);
   color: var(--steel-600);
   border-radius: var(--radius-sm);
+  transition: all var(--transition);
 }
 
-.day-tab.is-active {
+.disc-tab.is-active {
   background-color: var(--ink-black);
   border-color: var(--ink-black);
   color: var(--ink-white);
 }
 
-/* Responsive Schedule Grid */
+.disc-panel {
+  background-color: var(--bg-white);
+  border: 1.5px solid var(--ink-black);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.js-enabled .disc-panel.is-hidden {
+  display: none;
+}
+
+.disc-panel-header {
+  background-color: var(--ink-black);
+  color: var(--ink-white);
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.disc-panel-title {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.disc-panel-sub {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--steel-300);
+}
+
+.disc-panel-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.disc-day-group {
+  padding-bottom: 1.15rem;
+  border-bottom: 1px solid var(--steel-200);
+}
+
+.disc-day-group:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.disc-day-label {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-black);
+  margin-bottom: 0.65rem;
+}
+
+.disc-times-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.45rem;
+}
+
+.disc-time-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.6rem;
+  background-color: var(--bg-chalk);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-black);
+}
+
+.disc-spec-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.disc-spec-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.55rem 0.75rem;
+  background-color: var(--bg-chalk);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+}
+
+.disc-spec-day {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--steel-700);
+}
+
+.disc-spec-row .disc-time-chip {
+  background-color: var(--bg-white);
+  border-color: var(--ink-black);
+  padding: 0.3rem 0.65rem;
+}
+
+@media (min-width: 560px) {
+  .disc-tabs {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .disc-times-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Desktop Schedule Grid */
 .schedule-board {
   display: grid;
   grid-template-columns: 1fr;
@@ -775,11 +915,6 @@ button {
   border: 1px solid var(--border-light);
   border-radius: var(--radius-sm);
   overflow: hidden;
-}
-
-/* When JS activates mobile tabs, hide inactive days on small screens */
-.js-enabled .day-column.is-hidden-mobile {
-  display: none;
 }
 
 .day-header {
@@ -1495,18 +1630,18 @@ button {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  /* Show full 6-day matrix on desktop without needing day tabs */
-  .day-tabs {
+  /* Show full 6-day matrix on desktop; hide mobile discipline cards */
+  .mobile-schedule {
     display: none;
+  }
+
+  .desktop-schedule {
+    display: block;
   }
 
   .schedule-board {
     grid-template-columns: repeat(6, 1fr);
     gap: 0.75rem;
-  }
-
-  .js-enabled .day-column.is-hidden-mobile {
-    display: block;
   }
 
   .slot-item {
